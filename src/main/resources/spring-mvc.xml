@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	
+    <!-- 开启@RequestMapping注解映射 -->
+    <mvc:annotation-driven/>
+    
+	<!-- controller包(自动注入) -->
+	<context:component-scan base-package="com.ailot.*.controller" />
+	
+	<!-- 对模型视图名称的解析,即在模型视图名称添加前后缀 -->
+	 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+    <!-- Enables swgger ui-->
+    <mvc:resources mapping="swagger-ui.html" location="classpath:/META-INF/resources/"/>
+    <mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/>
+
+    <!-- Include a swagger configuration-->
+    <bean name="swaggerConfig" class="com.ailot.config.SwaggerConfig"/>
+    
+</beans>
