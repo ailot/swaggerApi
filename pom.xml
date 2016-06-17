@@ -21,12 +21,13 @@
 	</properties>
 
 	<!-- 设定jar获取的仓库，按照顺序进行查找 -->
+
 	<repositories>
-		<repository>
-			<id>oschina-repos</id>
-			<name>Oschina Releases</name>
-			<url>http://maven.oschina.net/content/groups/public</url>
-		</repository>
+		<!--<repository>-->
+			<!--<id>oschina-repos</id>-->
+			<!--<name>Oschina Releases</name>-->
+			<!--<url>http://maven.oschina.net/content/groups/public</url>-->
+		<!--</repository>-->
 		<!-- swagger私服地址 -->
 		<repository>
 			<id>jcenter-snapshots</id>
